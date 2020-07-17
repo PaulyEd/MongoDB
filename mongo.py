@@ -21,9 +21,21 @@ conn = mongo_connect(MONGODB_URI)
 
 coll = conn[DBS_NAME][COLLECTION_NAME]
 
-new_doc = {'first':'douglas','last':'adams','dob':'30/07/1991','hair_colour':'grey','occupation':'writer','nationality':'english'}
+# new_doc = {'first':'Frank','last':'adams','dob':'30/07/1991','hair_colour':'grey','occupation':'writer','nationality':'english'}
 
-coll.insert(new_doc)
+# new_docs = [ {'first':'Frank','last':'adams','dob':'30/07/1991','hair_colour':'grey','occupation':'writer','nationality':'english'},{'first':'Frank','last':'adams','dob':'30/07/1991','hair_colour':'grey','occupation':'writer','nationality':'english'},{'first':'Frank','last':'adams','dob':'30/07/1991','hair_colour':'grey','occupation':'writer','nationality':'english'}]
+
+# coll.insert(new_doc)
+
+# coll.insert_many(new_docs)
+
+# documents = coll.find({'first':'Frank'})
+
+# documents = coll.remove({'first':'Frank'})
+
+documents = coll.update_many({'nationality':'american'},{'$set': {'hair_colour':'maroon'}})
+
+documents = coll.find({'nationality':'american'})
 
 documents = coll.find()
 
